@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "@org/shared",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm run clean && pnpm run compile",
+    "clean": "rimraf ./dist",
+    "compile": "tsc",
+    "prepublishOnly": "pnpm run build",
+    "test": "echo \"Error: no test specified for shared package\""
+  },
+  "keywords": [],
+  "author": "Bruno Tot",
+  "license": "MIT",
+  "dependencies": {
+    "@anatine/zod-openapi": "^2.2.5",
+    "@ts-rest/core": "^3.45.0",
+    "@ts-rest/open-api": "^3.45.0",
+    "http-status": "^1.7.4",
+    "zod": "^3.22.5"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  }
+}

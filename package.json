@@ -1,0 +1,62 @@
+{
+  "name": "monorepo-mern-railway-starter",
+  "version": "0.0.1",
+  "description": "monorepo-mern-railway-starter description",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "pnpm": ">=8.15.7"
+  },
+  "scripts": {
+    "prepare": "husky && pnpm run shared:build",
+    "root:test": "pnpm run -r test",
+    "root:typedoc": "typedoc --options typedoc/typedoc.json && bash typedoc/scripts/typedoc-sanitize.sh",
+    "root:lint": "npx eslint . --fix",
+    "root:clean": "pnpm run -r clean",
+    "root:build": "pnpm run -r build",
+    "shared:build": "npm run build --prefix packages/shared",
+    "backend:start": "npm run start --prefix packages/backend",
+    "backend:build": "npm run build --prefix packages/backend",
+    "backend:dev": "npm run dev --prefix packages/backend",
+    "backend:test": "npm run test --prefix packages/backend",
+    "frontend:dev": "npm run dev --prefix packages/frontend",
+    "frontend:start": "npm run start --prefix packages/frontend",
+    "frontend:build": "npm run build --prefix packages/frontend",
+    "frontend:interface": "npm run interface --prefix packages/frontend",
+    "md:updateDeps": "node md/dependencies/updateDepDocs.js",
+    "md:mergeMds": "node md/scripts/mergeMds.js"
+  },
+  "author": "Bruno Tot",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^19.2.2",
+    "@commitlint/config-conventional": "^19.2.2",
+    "cross-dirname": "^0.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "markdown-toc": "^1.2.0",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.8",
+    "typedoc": "^0.25.12",
+    "typedoc-material-theme": "^1.0.2",
+    "typedoc-plugin-custom-tags": "^1.0.2",
+    "typedoc-plugin-remove-references": "^0.0.6",
+    "typedoc-theme-hierarchy": "^4.0.0"
+  },
+  "keywords": [
+    "monorepo",
+    "starter",
+    "template",
+    "mern",
+    "railway",
+    "react",
+    "mongodb",
+    "express",
+    "node"
+  ]
+}
